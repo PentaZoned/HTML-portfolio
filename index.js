@@ -34,6 +34,14 @@ inquirer
     .then((data) => {
         console.log(data);
 
+        var newString = generateHTML(data);
+
+        fs.writeFile("index.html", JSON.stringify(newString), (err) =>
+        err ? console.log(err) : console.log("Success!")
+        );
+    })
+
+    function generateHTML(data) {
         var htmlString = `<!DOCTYPE html>
         <html lang="en">
         
@@ -67,8 +75,5 @@ inquirer
         </body>
         
         </html>`;
-
-        fs.writeFile("index.html", JSON.stringify(htmlString, null, '\n' ), (err) =>
-        err ? console.log(err) : console.log("Success!")
-        );
-    })
+        return htmlString;
+    }
