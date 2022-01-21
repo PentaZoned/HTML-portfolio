@@ -56,11 +56,11 @@ inquirer
         <body>
             <section>
                 <ul>
-                    <li>Name: ${name}</li>
-                    <li>Location: ${location}</li>
-                    <li>Bio: ${bio}</li>
-                    <li>LinkedIn URL: ${linkedin}</li>
-                    <li>Github URL: ${github}</li>
+                    <li>Name: ${data.name}</li>
+                    <li>Location: ${data.location}</li>
+                    <li>Bio: ${data.bio}</li>
+                    <li>LinkedIn URL: ${data.linkedin}</li>
+                    <li>Github URL: ${data.github}</li>
                 </ul>
             </section>
         
@@ -68,7 +68,7 @@ inquirer
         
         </html>`;
 
-        fs.writeFile("index.txt", JSON.stringify(htmlString), (err) =>
+        fs.writeFile("index.html", JSON.stringify(htmlString, null, '\n' ), (err) =>
         err ? console.log(err) : console.log("Success!")
         );
     })
